@@ -39,7 +39,7 @@ function SignIn() {
     const [signIn, { isLoading }] = useSignInMutation();
 
     const defaultValues = {
-        email: "",
+        mobile: "",
         password: "",
     };
 
@@ -75,7 +75,7 @@ function SignIn() {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                backgroundImage: "url('/authPagesBgImage.webp')",
+                backgroundImage: "url('/authPagesBgImage.jpg')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -109,16 +109,16 @@ function SignIn() {
                 >
                     <Typography variant="h4" fontWeight="bold" align="center" color="white">Sign In</Typography>
                     <Box>
-                        <InputLabel sx={{ mb: ".5rem", color: "white", fontSize: "14px" }}>Email</InputLabel>
+                        <InputLabel sx={{ mb: ".5rem", color: "white", fontSize: "14px" }}>Mobile</InputLabel>
                         <OutlinedInput
                             size="small"
-                            {...register("email", { required: true })}
-                            placeholder='Email'
+                            {...register("mobile", { required: true })}
+                            placeholder='Mobile'
                             fullWidth
-                            startAdornment={<InputAdornment position="start"><PersonIcon sx={{ color: '#8703ef', fontSize: "20px" }} /></InputAdornment>}
+                            startAdornment={<InputAdornment position="start"><PersonIcon sx={{ color: '#f1b811', fontSize: "20px" }} /></InputAdornment>}
                             sx={{ ...inputStyles }}
                         />
-                        {errors.loginId && <Typography color="error">{errors.loginId.message}</Typography>}
+                        {errors.mobile && <Typography color="error">{errors.mobile.message}</Typography>}
                     </Box>
                     <Box>
                         <InputLabel sx={{ mb: ".5rem", color: "white", fontSize: "14px" }}>Password</InputLabel>
@@ -137,11 +137,11 @@ function SignIn() {
                                         onClick={handleClickShowPassword}
                                         edge="end"
                                     >
-                                        {showPassword ? <VisibilityOff sx={{ color: '#8703ef', fontSize: "20px" }} /> : <Visibility sx={{ color: '#8703ef', fontSize: "20px" }} />}
+                                        {showPassword ? <VisibilityOff sx={{ color: '#f1b811', fontSize: "20px" }} /> : <Visibility sx={{ color: '#f1b811', fontSize: "20px" }} />}
                                     </IconButton>
                                 </InputAdornment>
                             }
-                            startAdornment={<InputAdornment position="start"><LockIcon sx={{ color: '#8703ef', fontSize: "20px" }} /></InputAdornment>}
+                            startAdornment={<InputAdornment position="start"><LockIcon sx={{ color: '#f1b811', fontSize: "20px" }} /></InputAdornment>}
                             sx={{ ...inputStyles }}
                         />
                         {errors.password && <Typography color="error">{errors.password.message}</Typography>}
@@ -155,7 +155,7 @@ function SignIn() {
                             mt: "1rem",
                             textTransform: "capitalize",
                             boxShadow: "none",
-                            bgcolor: "#8703ef",
+                            bgcolor: "#f1b811",
                             fontSize: "1.1rem",
                             color: "white",
                             "&:hover": {

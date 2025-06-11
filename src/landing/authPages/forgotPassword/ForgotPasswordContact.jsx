@@ -106,7 +106,7 @@ function ForgotPasswordContact() {
                     {...register("email", { required: true })}
                     startAdornment={
                         <InputAdornment position="start">
-                            <EmailIcon sx={{ color: "#8703ef", fontSize: "25px" }} />
+                            <EmailIcon sx={{ color: "#f1b811", fontSize: "25px" }} />
                         </InputAdornment>
                     }
                 />
@@ -121,7 +121,7 @@ function ForgotPasswordContact() {
                     sx={{
                         textTransform: "capitalize",
                         boxShadow: "none",
-                        bgcolor: "#8703ef",
+                        bgcolor: "#f1b811",
                         fontSize: "1rem",
                         color: "white",
                         "&:hover": { boxShadow: "none" }

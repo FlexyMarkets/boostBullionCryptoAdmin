@@ -51,8 +51,16 @@ function Details() {
                                     <Typography variant="body2" color="textSecondary">
                                         {keys}
                                     </Typography>
-                                    <Typography variant="h6" fontWeight="bold">
+                                    {/* <Typography variant="h6" fontWeight="bold">
                                         {isLoading ? <Skeleton width={200} height={30} /> : values || 0}
+                                    </Typography> */}
+                                    <Typography variant="h6" fontWeight="bold">
+                                        {isLoading
+                                            ? <Skeleton width={200} height={30} />
+                                            : Number(values || 0).toLocaleString(undefined, {
+                                                minimumFractionDigits: 2,
+                                                maximumFractionDigits: 4,
+                                            })}
                                     </Typography>
                                 </Stack>
                                 <PaymentsIcon />

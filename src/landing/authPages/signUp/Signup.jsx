@@ -160,7 +160,7 @@ function Signup() {
                                 placeholder='Enter your full name'
                                 {...register("name", { required: true })}
                                 fullWidth
-                                startAdornment={<InputAdornment position="start"><PersonIcon sx={{ color: '#8703ef', fontSize: "20px" }} /></InputAdornment>}
+                                startAdornment={<InputAdornment position="start"><PersonIcon sx={{ color: '#f1b811', fontSize: "20px" }} /></InputAdornment>}
                                 sx={{ ...inputStyles }}
                             />
                             {errors.name && <Typography color="error">{errors.name.message}</Typography>}
@@ -172,7 +172,7 @@ function Signup() {
                                 placeholder='Enter your email'
                                 {...register("email", { required: true })}
                                 fullWidth
-                                startAdornment={<InputAdornment position="start"><EmailIcon sx={{ color: '#8703ef', fontSize: "20px" }} /></InputAdornment>}
+                                startAdornment={<InputAdornment position="start"><EmailIcon sx={{ color: '#f1b811', fontSize: "20px" }} /></InputAdornment>}
                                 sx={{ ...inputStyles }}
                             />
                             {errors.email && <Typography color="error">{errors.email.message}</Typography>}
@@ -184,7 +184,7 @@ function Signup() {
                                 placeholder='Enter your mobile no.'
                                 {...register("mobile", { required: true })}
                                 fullWidth
-                                startAdornment={<InputAdornment position="start"><LocalPhoneIcon sx={{ color: '#8703ef', fontSize: "20px" }} /></InputAdornment>}
+                                startAdornment={<InputAdornment position="start"><LocalPhoneIcon sx={{ color: '#f1b811', fontSize: "20px" }} /></InputAdornment>}
                                 sx={{ ...inputStyles }}
                             />
                             {errors.mobile && <Typography color="error">{errors.mobile.message}</Typography>}
@@ -206,11 +206,11 @@ function Signup() {
                                             onClick={handleClickShowPassword}
                                             edge="end"
                                         >
-                                            {showPassword ? <VisibilityOff sx={{ color: '#8703ef', fontSize: "20px" }} /> : <Visibility sx={{ color: '#8703ef', fontSize: "20px" }} />}
+                                            {showPassword ? <VisibilityOff sx={{ color: '#f1b811', fontSize: "20px" }} /> : <Visibility sx={{ color: '#f1b811', fontSize: "20px" }} />}
                                         </IconButton>
                                     </InputAdornment>
                                 }
-                                startAdornment={<InputAdornment position="start"><LockIcon sx={{ color: '#8703ef', fontSize: "20px" }} /></InputAdornment>}
+                                startAdornment={<InputAdornment position="start"><LockIcon sx={{ color: '#f1b811', fontSize: "20px" }} /></InputAdornment>}
                                 sx={{ ...inputStyles }}
                             />
                             {errors.password && <Typography color="error">{errors.password.message}</Typography>}
@@ -232,11 +232,11 @@ function Signup() {
                                             onClick={handleClickShowCnfPassword}
                                             edge="end"
                                         >
-                                            {showCnfPassword ? <VisibilityOff sx={{ color: '#8703ef', fontSize: "20px" }} /> : <Visibility sx={{ color: '#8703ef', fontSize: "20px" }} />}
+                                            {showCnfPassword ? <VisibilityOff sx={{ color: '#f1b811', fontSize: "20px" }} /> : <Visibility sx={{ color: '#f1b811', fontSize: "20px" }} />}
                                         </IconButton>
                                     </InputAdornment>
                                 }
-                                startAdornment={<InputAdornment position="start"><LockIcon sx={{ color: '#8703ef', fontSize: "20px" }} /></InputAdornment>}
+                                startAdornment={<InputAdornment position="start"><LockIcon sx={{ color: '#f1b811', fontSize: "20px" }} /></InputAdornment>}
                                 sx={{ ...inputStyles }}
                             />
                             {errors.cnfPassword && <Typography color="error">{errors.cnfPassword.message}</Typography>}
@@ -248,7 +248,7 @@ function Signup() {
                                 {...register("referral")}
                                 placeholder='Enter your referral code'
                                 fullWidth
-                                startAdornment={<InputAdornment position="start"><PeopleIcon sx={{ color: '#8703ef', fontSize: "20px" }} /></InputAdornment>}
+                                startAdornment={<InputAdornment position="start"><PeopleIcon sx={{ color: '#f1b811', fontSize: "20px" }} /></InputAdornment>}
                                 sx={{ ...inputStyles }}
                             />
                             <InputLabel sx={{ mt: "2px", color: "white", fontSize: "12px" }}>
@@ -269,7 +269,7 @@ function Signup() {
                         sx={{
                             textTransform: "capitalize",
                             boxShadow: "none",
-                            bgcolor: "#8703ef",
+                            bgcolor: "#f1b811",
                             fontSize: "1.1rem",
                             color: "white",
                             "&:hover": {
@@ -278,7 +278,7 @@ function Signup() {
                         }}
                     >Sign up</Button>
                     <Typography textAlign="center" color="white" fontSize={"14px"}>
-                        Already have an account? <Link to={"/signin"} style={{ textDecoration: "none" }}><Typography component="span" color="primary" sx={{ cursor: "pointer", color: '#8703ef' }}>Sign In</Typography></Link>
+                        Already have an account? <Link to={"/signin"} style={{ textDecoration: "none" }}><Typography component="span" color="primary" sx={{ cursor: "pointer", color: '#f1b811' }}>Sign In</Typography></Link>
                     </Typography>
                 </CardContent>
             </Card>

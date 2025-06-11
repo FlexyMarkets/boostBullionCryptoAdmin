@@ -21,6 +21,14 @@ export const adminStateApis = createApi({
                 body: data
             })
         }),
+        userProfileUpdate: builder.mutation({
+            query: (data) => ({
+                url: "/user/update",
+                method: "PUT",
+                body: data
+            }),
+            invalidatesTags: ["userList"]
+        }),
         userList: builder.query({
             query: ({ page = 1, sizePerPage = 10, search, greaterThan, lessThan, type, startDate, endDate }) => {
                 const params = {};
@@ -55,13 +63,6 @@ export const adminStateApis = createApi({
         }),
         getUserById: builder.query({
             query: ({ id }) => `/user/${id}`,
-        }),
-        userProfileUpdate: builder.mutation({
-            query: (data) => ({
-                url: "/user/update",
-                method: "PUT",
-                body: data
-            })
         }),
         editTransaction: builder.mutation({
             query: (data) => ({

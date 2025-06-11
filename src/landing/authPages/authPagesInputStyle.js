@@ -3,10 +3,10 @@ export const inputStyles = {
         borderColor: "white",
     },
     "&:hover .MuiOutlinedInput-notchedOutline": {
-        borderColor: "#8703ef",
+        borderColor: "#f1b811",
     },
     "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-        borderColor: "#8703ef",
+        borderColor: "#f1b811",
     },
     input: {
         color: "white",
@@ -36,26 +36,26 @@ export const searchableDropdownStyle = {
             borderColor: "white",
         },
         "&:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#8703ef",
+            borderColor: "#f1b811",
         },
         "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#8703ef",
+            borderColor: "#f1b811",
         },
         "&.MuiAutocomplete-hasPopupIcon.Mui-focused .MuiOutlinedInput-notchedOutline":
         {
-            borderColor: "#8703ef",
+            borderColor: "#f1b811",
         },
     },
     "& .MuiInputBase-input": {
         color: "white",
     },
     "& .MuiSvgIcon-root": {
-        color: "#8703ef",
+        color: "#f1b811",
     },
     "& label": {
         color: "white",
         "&.Mui-focused": {
-            color: "#8703ef",
+            color: "#f1b811",
         },
     },
 }

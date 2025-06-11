@@ -17,8 +17,12 @@ const adminStateSlice = createSlice({
             localStorage.setItem("selectedReferralCode", action.payload)
             state.selectedReferralCode = action.payload
         },
+        removeSelectedReferralCode: (state) => {
+            state.selectedReferralCode = null
+            localStorage.removeItem("selectedReferralCode")
+        }
     }
 });
 
-export const { setRole, setSelectedReferralCode } = adminStateSlice.actions;
+export const { setRole, setSelectedReferralCode, removeSelectedReferralCode } = adminStateSlice.actions;
 export default adminStateSlice.reducer;

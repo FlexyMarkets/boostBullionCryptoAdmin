@@ -57,7 +57,7 @@ function DashboardLayout() {
         palette: {
             mode: activeTheme === "dark" ? "dark" : "light",
             primary: {
-                main: "#8703ef",
+                main: "#f1b811",
             },
             background: {
                 default: activeTheme === "dark" ? "#121212" : "#f5f5f5",
@@ -109,7 +109,7 @@ function DashboardLayout() {
                             </Tooltip>
                             <Link to={"/"}>
                                 <Stack>
-                                    <img src={activeTheme === "dark" ? "/logo512.png" : "/logoLightBackground.png"} alt="My Logo" style={{ width: "8rem" }} />
+                                    <img src="/logo512.png" alt="My Logo" style={{ width: "4rem" }} />
                                 </Stack>
                             </Link>
                         </Stack>

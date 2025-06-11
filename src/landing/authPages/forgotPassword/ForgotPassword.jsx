@@ -9,10 +9,10 @@ const steps = ['Send OTP', 'Verify OTP', 'Reset Password'];
 
 const CustomStepLabel = styled(StepLabel)(() => ({
     '& .Mui-active': {
-        color: '#8703ef !important',
+        color: '#f1b811 !important',
     },
     '& .Mui-completed': {
-        color: '#8703ef !important',
+        color: '#f1b811 !important',
     },
 }));
 

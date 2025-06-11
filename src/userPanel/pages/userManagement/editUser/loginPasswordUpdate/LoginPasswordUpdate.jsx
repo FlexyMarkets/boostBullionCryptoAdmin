@@ -108,7 +108,7 @@ function LoginPasswordUpdate() {
                                         onClick={handleClickShowPassword}
                                         edge="end"
                                     >
-                                        {showPassword ? <VisibilityOff sx={{ color: '#8703ef', fontSize: "20px" }} /> : <Visibility sx={{ color: '#8703ef', fontSize: "20px" }} />}
+                                        {showPassword ? <VisibilityOff sx={{ color: '#f1b811', fontSize: "20px" }} /> : <Visibility sx={{ color: '#f1b811', fontSize: "20px" }} />}
                                     </IconButton>
                                 </InputAdornment>
                             }

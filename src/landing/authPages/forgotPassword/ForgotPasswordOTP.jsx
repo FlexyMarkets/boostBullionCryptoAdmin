@@ -123,7 +123,7 @@ export default function ForgotPasswordOTP() {
                 sx={{
                     textTransform: "capitalize",
                     boxShadow: "none",
-                    bgcolor: "#8703ef",
+                    bgcolor: "#f1b811",
                     fontSize: "14px",
                     color: "white",
                     "&:hover": { boxShadow: "none" }

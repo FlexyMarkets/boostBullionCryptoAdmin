@@ -32,7 +32,7 @@ const handleExportToExcel = (rows) => {
     const worksheet = XLSX.utils.json_to_sheet(rows);
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
-    XLSX.writeFile(workbook, 'transactionList.xlsx');
+    XLSX.writeFile(workbook, 'userListData.xlsx');
 };
 
 function UserList() {
@@ -50,7 +50,7 @@ function UserList() {
     const formattedFromDate = filters.fromDate ? dayjs(filters.fromDate).format('YYYY-MM-DD') : undefined;
     const formattedToDate = filters.toDate ? dayjs(filters.toDate).format('YYYY-MM-DD') : undefined;
 
-    const { data: listData, isLoading, isError } = useUserListQuery({
+    const { data: listData, isLoading, isError, error } = useUserListQuery({
         page: pagination.pageIndex + 1,
         sizePerPage: pagination.pageSize,
         search,
@@ -58,6 +58,8 @@ function UserList() {
         startDate: formattedFromDate,
         endDate: formattedToDate,
     });
+
+    const showError = error?.data?.message
 
     const userListData = listData?.data?.docs || [];
 
@@ -83,11 +85,20 @@ function UserList() {
             showAlertBanner: isError,
             search
         },
+        initialState: {
+            showGlobalFilter: true,
+        },
         onPaginationChange: setPagination,
         onGlobalFilterChange: setSearch,
         columnFilterDisplayMode: "popover",
         paginationDisplayMode: 'pages',
         positionToolbarAlertBanner: 'bottom',
+        muiToolbarAlertBannerProps: isError
+            ? {
+                color: 'error',
+                children: showError || 'Error loading transactions.',
+            }
+            : undefined,
         renderTopToolbarCustomActions: () => (
             <Box
                 sx={{
@@ -99,7 +110,7 @@ function UserList() {
             >
                 <Button
                     variant="contained"
-                    onClick={() => handleExportToExcel(transactionsListData)}
+                    onClick={() => handleExportToExcel(userListData)}
                     startIcon={<FileDownloadIcon sx={{ color: "white" }} />}
                     sx={{
                         textTransform: 'none',

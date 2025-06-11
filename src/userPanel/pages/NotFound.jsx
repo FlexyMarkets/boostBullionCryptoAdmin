@@ -35,7 +35,7 @@ function NotFound() {
                     sx={{
                         textTransform: "capitalize",
                         boxShadow: "none",
-                        bgcolor: "#8703ef",
+                        bgcolor: "#f1b811",
                         color: "white",
                         px: 4,
                         py: 1.5,

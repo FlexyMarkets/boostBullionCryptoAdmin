@@ -24,7 +24,7 @@ function ForgotPasswordModal({ btnName }) {
 
     return (
         <div>
-            <Typography onClick={handleOpen} sx={{ cursor: "pointer", color: "#8703ef" }}>{btnName}</Typography>
+            <Typography onClick={handleOpen} sx={{ cursor: "pointer", color: "#f1b811" }}>{btnName}</Typography>
             <Modal
                 open={open}
                 aria-labelledby="modal-modal-title"

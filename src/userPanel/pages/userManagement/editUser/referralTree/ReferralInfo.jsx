@@ -1,8 +1,12 @@
 import { Stack, Typography, Box, Divider } from '@mui/material';
 import Loading from '../../../../userPanelComponent/Loading';
 import CloseIcon from '@mui/icons-material/Close';
+import { useDispatch } from 'react-redux';
+import { removeSelectedReferralCode } from '../../../../../globalState/admin/adminStateSlice';
 
 function ReferralInfo({ data, loading, onClose }) {
+
+  const dispatch = useDispatch()
 
   const dataInfo = {
     "Name": data?.name || "N/A",
@@ -17,6 +21,11 @@ function ReferralInfo({ data, loading, onClose }) {
     "Direct referral team": data?.directReferralTeam || "N/A"
   }
 
+  const handleClose = () => {
+    dispatch(removeSelectedReferralCode())
+    onClose()
+  }
+
   return (
     <Stack
       sx={{
@@ -28,7 +37,7 @@ function ReferralInfo({ data, loading, onClose }) {
     >
       <Stack sx={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
         <Typography variant="h5" fontWeight="bold">Referral User data</Typography>
-        <CloseIcon sx={{ cursor: "pointer" }} onClick={onClose} />
+        <CloseIcon sx={{ cursor: "pointer" }} onClick={handleClose} />
       </Stack>
       <Divider sx={{ my: "5px" }} />
       {
