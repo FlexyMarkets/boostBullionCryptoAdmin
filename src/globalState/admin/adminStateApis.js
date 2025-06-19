@@ -170,12 +170,13 @@ export const adminStateApis = createApi({
             ]
         }),
         supportTicketList: builder.query({
-            query: ({ page = 1, sizePerPage = 10, status }) => {
+            query: ({ page = 1, sizePerPage = 10, status, priority }) => {
                 const params = {};
 
                 if (page > 0) params.page = page;
                 if (sizePerPage > 0) params.sizePerPage = sizePerPage;
                 if (status) params.status = status;
+                if (priority) params.priority = priority;
 
                 return {
                     url: "/support/list",
