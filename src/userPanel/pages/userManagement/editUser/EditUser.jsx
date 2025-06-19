@@ -4,7 +4,7 @@ import Selector from "../../../userPanelComponent/Selector"
 import Loading from "../../../userPanelComponent/Loading"
 import { useParams } from "react-router-dom"
 import { useGetUserByIdQuery } from "../../../../globalState/admin/adminStateApis"
-const UserProfileUpdate = lazy(() => import("./userProfileUpdate/userProfileUpdate"))
+const UserProfileUpdate = lazy(() => import("./userProfileUpdate/UserProfileUpdate"))
 const LoginPasswordUpdate = lazy(() => import("./loginPasswordUpdate/LoginPasswordUpdate"))
 const TransactionPasswordUpdate = lazy(() => import("./transactionPasswordUpdate/TransactionPasswordUpdate"))
 const UserTransactionHistoryList = lazy(() => import("./userTransactionHistory/UserTransactionHistoryList"))
