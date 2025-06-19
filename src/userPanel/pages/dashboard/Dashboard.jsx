@@ -5,7 +5,7 @@ import TopTenTransactionHistory from './topTenTransactionHistory/TopTenTransacti
 
 function Dashboard() {
     return (
-        <Stack sx={{ mt: "100px", mx: { xs: "1rem", md: "3rem" } }}>
+        <Stack sx={{ mt: "100px" }}>
             <Typography variant="h4" fontWeight="bold" gutterBottom>Dashboard</Typography>
             <Details />
             <TopTenTransactionHistory />

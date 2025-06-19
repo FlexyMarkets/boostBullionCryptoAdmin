@@ -126,7 +126,7 @@ function TransactionList() {
   }, []);
 
   return (
-    <Stack sx={{ mt: "100px", mx: { xs: "1rem", md: "3rem" } }}>
+    <Stack sx={{ mt: "100px" }}>
       <Typography variant='h5' fontWeight={700} fontSize="1.8rem" mb={4}>
         Transaction List
       </Typography>

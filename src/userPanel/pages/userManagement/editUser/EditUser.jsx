@@ -50,7 +50,7 @@ function EditUser() {
   }
 
   return (
-    <Stack sx={{ mt: "100px", mx: { xs: "1rem", md: "3rem" } }}>
+    <Stack sx={{ mt: "100px" }}>
       <Typography variant="h5" fontWeight="bold" mb="2rem">Edit user</Typography>
       <Selector
         width={{ xs: "100%", sm: "350px" }}
