@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Container, Stack } from "@mui/material";
 import { ForexCrossRates } from "react-ts-tradingview-widgets";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -18,7 +18,7 @@ function ForexCrossRatesWidget() {
     }, []);
 
     return (
-        <Container
+        <Stack
             sx={{
                 mt: "2rem",
                 width: "100%",
@@ -29,7 +29,7 @@ function ForexCrossRatesWidget() {
             }}
         >
             <ForexCrossRates backgroundColor={activeTheme === "dark" ? "#292929" : "#ebe8e8"} colorTheme={activeTheme === "dark" ? "dark" : "light"} width={"100%"} height={600} />
-        </Container>
+        </Stack>
     );
 }
 

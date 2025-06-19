@@ -127,7 +127,7 @@ function UserList() {
     });
 
     return (
-        <Container sx={{ mt: "100px" }}>
+        <Stack sx={{ mt: "100px", mx: { xs: "1rem", md: "3rem" } }}>
             <Typography variant='h5' fontWeight={700} fontSize="1.8rem" mb={4}>
                 User list
             </Typography>
@@ -199,7 +199,7 @@ function UserList() {
             <Stack sx={{ mt: 4, borderRadius: 2, overflow: 'hidden' }}>
                 <MaterialReactTable table={table} />
             </Stack>
-        </Container>
+        </Stack>
     );
 };
 

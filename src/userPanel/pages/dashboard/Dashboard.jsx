@@ -5,10 +5,8 @@ import TopTenTransactionHistory from './topTenTransactionHistory/TopTenTransacti
 
 function Dashboard() {
     return (
-        <Stack mt={"100px"}>
-            <Container>
-                <Typography variant="h4" fontWeight="bold" gutterBottom>Dashboard</Typography>
-            </Container>
+        <Stack sx={{ mt: "100px", mx: { xs: "1rem", md: "3rem" } }}>
+            <Typography variant="h4" fontWeight="bold" gutterBottom>Dashboard</Typography>
             <Details />
             <TopTenTransactionHistory />
             <ForexCrossRatesWidget />
@@ -16,4 +14,4 @@ function Dashboard() {
     )
 }
 
-export default Dashboard
+export default Dashboard;

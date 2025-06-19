@@ -30,7 +30,7 @@ function Details() {
 
     return (
         <Stack>
-            <Container>
+            {/* <Container> */}
                 <Grid container spacing={2} size={12}>
                     {
                         Object.entries(income).map(([keys, values]) => (
@@ -68,7 +68,7 @@ function Details() {
                         ))
                     }
                 </Grid>
-            </Container>
+            {/* </Container> */}
         </Stack>
     );
 };

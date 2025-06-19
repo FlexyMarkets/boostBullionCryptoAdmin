@@ -52,7 +52,7 @@ function ShowTicket() {
     }
 
     return (
-        <Container sx={{ mt: "100px", display: "flex", flexDirection: "column", gap: "2rem" }}>
+        <Stack sx={{ mt: "100px", display: "flex", flexDirection: "column", gap: "2rem", mx: { xs: "1rem", md: "3rem" } }}>
             <Typography variant='h5' fontWeight={"700"} fontSize={"1.8rem"}>Show Ticket</Typography>
             <Stack
                 sx={{
@@ -162,7 +162,7 @@ function ShowTicket() {
                     }}
                 >Submit</Button>
             </Stack>
-        </Container>
+        </Stack>
     )
 }
 

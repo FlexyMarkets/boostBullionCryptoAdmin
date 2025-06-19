@@ -1,4 +1,4 @@
-import { Container, Typography } from "@mui/material"
+import { Container, Stack, Typography } from "@mui/material"
 import { lazy, Suspense, useState } from "react"
 import Selector from "../../../userPanelComponent/Selector"
 import Loading from "../../../userPanelComponent/Loading"
@@ -50,7 +50,7 @@ function EditUser() {
   }
 
   return (
-    <Container sx={{ mt: "100px" }}>
+    <Stack sx={{ mt: "100px", mx: { xs: "1rem", md: "3rem" } }}>
       <Typography variant="h5" fontWeight="bold" mb="2rem">Edit user</Typography>
       <Selector
         width={{ xs: "100%", sm: "350px" }}
@@ -63,7 +63,7 @@ function EditUser() {
       <Suspense fallback={<Loading mt={"10rem"} />}>
         <ActiveComponent userData={selectedUserData} userDataLoading={isLoading} />
       </Suspense>
-    </Container>
+    </Stack>
   )
 }
 
