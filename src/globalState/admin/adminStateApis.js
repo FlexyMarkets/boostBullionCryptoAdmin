@@ -12,7 +12,7 @@ export const adminStateApis = createApi({
             return headers;
         }
     }),
-    tagTypes: ["userList"],
+    tagTypes: ["userList", "supportTicket"],
     endpoints: (builder) => ({
         addFund: builder.mutation({
             query: (data) => ({
@@ -147,6 +147,72 @@ export const adminStateApis = createApi({
         getDashboardData: builder.query({
             query: () => `/dashboard`,
         }),
+        replaySupportTicket: builder.mutation({
+            query: (data) => ({
+                url: "/support/replay",
+                method: "PUT",
+                body: data
+            }),
+            invalidatesTags: (result, error, arg) => [
+                { type: 'supportTicket', id: arg.ticketId },
+                { type: 'supportTicket', id: 'PARTIAL-LIST' }
+            ]
+        }),
+        updateSupportTicket: builder.mutation({
+            query: (data) => ({
+                url: "/support/close",
+                method: "POST",
+                body: data
+            }),
+            invalidatesTags: (result, error, arg) => [
+                { type: 'supportTicket', id: arg.ticketId },
+                { type: 'supportTicket', id: 'PARTIAL-LIST' }
+            ]
+        }),
+        supportTicketList: builder.query({
+            query: ({ page = 1, sizePerPage = 10, status }) => {
+                const params = {};
+
+                if (page > 0) params.page = page;
+                if (sizePerPage > 0) params.sizePerPage = sizePerPage;
+                if (status) params.status = status;
+
+                return {
+                    url: "/support/list",
+                    params,
+                };
+            },
+            providesTags: (result) => {
+                const data = result?.data?.ticketList || []
+                return data.length > 0
+                    ?
+                    [
+                        ...data.map(({ id }) => ({ type: 'supportTicket', id })),
+                        { type: 'supportTicket', id: 'PARTIAL-LIST' },
+                    ]
+                    :
+                    [{ type: 'supportTicket', id: 'PARTIAL-LIST' }]
+            },
+            keepUnusedDataFor: 60,
+            refetchOnMountOrArgChange: true,
+        }),
+        supportTicketById: builder.query({
+            query: ({ id }) => {
+                const params = {};
+                if (id) params.id = id;
+
+                return {
+                    url: `/support/${id}`,
+                    params,
+                };
+            },
+            providesTags: (result, error, arg) =>
+                result?.data?.id
+                    ? [{ type: 'supportTicket', id: result.data.id }]
+                    : [{ type: 'supportTicket', id: 'PARTIAL-LIST' }],
+            keepUnusedDataFor: 60,
+            refetchOnMountOrArgChange: true,
+        }),
     })
 })
 
@@ -161,5 +227,10 @@ export const {
     useUserTransactionPasswordUpdateMutation,
     useUserLoginPasswordUpdateMutation,
     useGetReferralListQuery,
-    useGetDashboardDataQuery
+    useGetDashboardDataQuery,
+    useCreateSupportTicketMutation,
+    useSupportTicketListQuery,
+    useSupportTicketByIdQuery,
+    useReplaySupportTicketMutation,
+    useUpdateSupportTicketMutation
 } = adminStateApis;

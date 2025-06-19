@@ -55,7 +55,7 @@ function ModalComponent({ btnName, btnSx, type = "button", color, startIcon, Con
                 aria-describedby="keep-mounted-modal-description"
             >
                 <Box sx={style}>
-                    <Content data={contentData} />
+                    <Content data={contentData} onClose={handleClose} />
                 </Box>
             </Modal>
         </div>

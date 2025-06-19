@@ -3,6 +3,7 @@ import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import HelpIcon from '@mui/icons-material/Help';
 
 export const NAVIGATION = [
     {
@@ -25,6 +26,11 @@ export const NAVIGATION = [
         segment: '/dashboard/transactionList',
         title: 'Transaction',
         icon: AccountBalanceIcon,
+    },
+    {
+        segment: '/dashboard/support/myTickets',
+        title: 'Tickets',
+        icon: HelpIcon,
     },
     {
         title: 'Log out',
