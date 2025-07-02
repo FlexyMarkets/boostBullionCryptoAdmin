@@ -4,6 +4,8 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import HelpIcon from '@mui/icons-material/Help';
+import ViewCarouselOutlinedIcon from '@mui/icons-material/ViewCarouselOutlined';
+import SourceOutlinedIcon from '@mui/icons-material/SourceOutlined';
 
 export const NAVIGATION = [
     {
@@ -20,6 +22,28 @@ export const NAVIGATION = [
                 title: 'User list',
                 icon: CircleOutlinedIcon,
             }
+        ],
+    },
+    {
+        title: 'Content management',
+        icon: SourceOutlinedIcon,
+        children: [
+            {
+                title: 'Banner',
+                icon: ViewCarouselOutlinedIcon,
+                children: [
+                    {
+                        segment: '/dashboard/contentManagement/banner/addBanner',
+                        title: 'Add banner',
+                        icon: CircleOutlinedIcon,
+                    },
+                    {
+                        segment: '/dashboard/contentManagement/banner/bannerList',
+                        title: 'banner list',
+                        icon: CircleOutlinedIcon,
+                    }
+                ],
+            },
         ],
     },
     {

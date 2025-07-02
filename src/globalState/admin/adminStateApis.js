@@ -214,6 +214,51 @@ export const adminStateApis = createApi({
             keepUnusedDataFor: 60,
             refetchOnMountOrArgChange: true,
         }),
+        addBanner: builder.mutation({
+            query: (data) => {
+                const formData = new FormData();
+                if (data.image instanceof File) {
+                    formData.append("image", data.image);
+                }
+                const queryParams = new URLSearchParams({
+                    title: data.title || '',
+                }).toString();
+
+                return {
+                    url: `/banner/upload?${queryParams}`,
+                    method: "POST",
+                    body: formData,
+                };
+            },
+            invalidatesTags: [{ type: 'addBanner', id: "PARTIAL-LIST" }]
+        }),
+        bannerList: builder.query({
+            query: ({ page = 1, sizePerPage = 10, search = "" }) => {
+                const params = {};
+                if (page > 0) params.page = page;
+                if (sizePerPage > 0) params.sizePerPage = sizePerPage;
+                if (search) params.search = search;
+
+                return {
+                    url: "/banner",
+                    params,
+                };
+            },
+            keepUnusedDataFor: 60,
+            refetchOnMountOrArgChange: true,
+            providesTags: [{ type: 'addBanner', id: "PARTIAL-LIST" }]
+        }),
+        deleteBanner: builder.mutation({
+            query: (data) => {
+
+                return {
+                    url: `/banner`,
+                    method: "DELETE",
+                    body: data,
+                };
+            },
+            invalidatesTags: [{ type: 'addBanner', id: "PARTIAL-LIST" }]
+        }),
     })
 })
 
@@ -233,5 +278,8 @@ export const {
     useSupportTicketListQuery,
     useSupportTicketByIdQuery,
     useReplaySupportTicketMutation,
-    useUpdateSupportTicketMutation
+    useUpdateSupportTicketMutation,
+    useAddBannerMutation,
+    useBannerListQuery,
+    useDeleteBannerMutation
 } = adminStateApis;
