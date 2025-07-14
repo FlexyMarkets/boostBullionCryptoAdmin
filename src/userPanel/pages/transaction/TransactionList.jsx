@@ -24,7 +24,7 @@ import dayjs from 'dayjs';
 import { useUserListQuery } from '../../../globalState/admin/adminStateApis';
 
 const STATUS_OPTIONS = ["PENDING", "COMPLETED", "REJECTED"];
-const transaction_Type = ["BURN", "DEPOSIT", "TRADE", "WITHDRAW", "CONVERT-REWARD", "PROFIT-SHARING-INCOME", "SIGNUP-BONUS", "LEVEL-AIR-DROP", "REFERAL-INCOME", "FUND-TRANSFER", "RANK-REWARD", "RANK-UPGRADE-BONUS", "DELEGATED-REWARD", "SWAP-MAIN-TO-TRADE", "SWAP-AFFLIATE-TO-TRADE"];
+const transaction_Type = ["BURN", "DEPOSIT", "BOND-IN", "WITHDRAW", "CONVERT-REWARD", "BOND-REWARD", "SIGNUP-BONUS", "LEVEL-AIR-DROP", "REFER-INCOME", "FUND-TRANSFER", "RANK-UPGRADE-BONUS", "DELEGATED-REWARD", "RANK-REWARD"]
 
 const handleExportToExcel = (rows) => {
   const worksheet = XLSX.utils.json_to_sheet(rows);
