@@ -27,7 +27,10 @@ export const adminStateApis = createApi({
                 method: "PUT",
                 body: data
             }),
-            invalidatesTags: ["userList"]
+            invalidatesTags: (result, error, data) => [
+                { type: 'userList', id: data.userId },
+                { type: 'userList', id: 'PARTIAL-LIST' }
+            ]
         }),
         userList: builder.query({
             query: ({ page = 1, sizePerPage = 10, search, greaterThan, lessThan, type, startDate, endDate }) => {
@@ -48,21 +51,20 @@ export const adminStateApis = createApi({
             },
 
             providesTags: (result) => {
-                const data = result?.data?.docs || []
+                const data = result?.data?.docs || [];
                 return data.length > 0
-                    ?
-                    [
-                        ...data.map(({ id }) => ({ type: 'userList', id })),
+                    ? [
+                        ...data.map((user) => ({ type: 'userList', id: user._id || user.id })),
                         { type: 'userList', id: 'PARTIAL-LIST' },
                     ]
-                    :
-                    [{ type: 'userList', id: 'PARTIAL-LIST' }]
+                    : [{ type: 'userList', id: 'PARTIAL-LIST' }];
             },
             keepUnusedDataFor: 60,
             refetchOnMountOrArgChange: true,
         }),
         getUserById: builder.query({
             query: ({ id }) => `/user/${id}`,
+            providesTags: (result, error, { id }) => [{ type: 'userList', id }],
         }),
         editTransaction: builder.mutation({
             query: (data) => ({

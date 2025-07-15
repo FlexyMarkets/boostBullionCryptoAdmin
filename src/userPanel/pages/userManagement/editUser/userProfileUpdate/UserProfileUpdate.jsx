@@ -142,7 +142,7 @@ function UserProfileUpdate({ userData, userDataLoading }) {
                             <Grid item size={{ xs: 12, sm: 6, md: 4 }}>
                                 <InputLabel sx={{ mb: ".5rem" }}>Email</InputLabel>
                                 <TextField
-                                    disabled
+                                    // disabled
                                     {...register("email", { required: true })}
                                     size='small'
                                     fullWidth
@@ -152,7 +152,7 @@ function UserProfileUpdate({ userData, userDataLoading }) {
                             <Grid item size={{ xs: 12, sm: 6, md: 4 }}>
                                 <InputLabel sx={{ mb: ".5rem" }}>Mobile</InputLabel>
                                 <TextField
-                                    disabled
+                                    // disabled
                                     {...register("mobile", { required: true })}
                                     size='small'
                                     fullWidth
@@ -174,7 +174,7 @@ function UserProfileUpdate({ userData, userDataLoading }) {
                                     <RadioGroup
                                         aria-labelledby="demo-controlled-radio-buttons-group"
                                         name="controlled-radio-buttons-group"
-                                        value={watch("isEmailVerified")}
+                                        value={watch("isEmailVerified") ?? false}
                                         onChange={(e) => setValue("isEmailVerified", e.target.value)}
                                         sx={{ flexDirection: "row" }}
                                     >
@@ -190,7 +190,7 @@ function UserProfileUpdate({ userData, userDataLoading }) {
                                     <RadioGroup
                                         aria-labelledby="demo-controlled-radio-buttons-group"
                                         name="controlled-radio-buttons-group"
-                                        value={watch("isMobileVerified")}
+                                        value={watch("isMobileVerified") ?? false}
                                         onChange={(e) => setValue("isMobileVerified", e.target.value)}
                                         sx={{ flexDirection: "row" }}
                                     >
@@ -206,7 +206,7 @@ function UserProfileUpdate({ userData, userDataLoading }) {
                                     <RadioGroup
                                         aria-labelledby="demo-controlled-radio-buttons-group"
                                         name="controlled-radio-buttons-group"
-                                        value={watch("isWithdrawAllowed")}
+                                        value={watch("isWithdrawAllowed") ?? false}
                                         onChange={(e) => setValue("isWithdrawAllowed", e.target.value)}
                                         sx={{ flexDirection: "row" }}
                                     >
@@ -222,7 +222,7 @@ function UserProfileUpdate({ userData, userDataLoading }) {
                                     <RadioGroup
                                         aria-labelledby="demo-controlled-radio-buttons-group"
                                         name="controlled-radio-buttons-group"
-                                        value={watch("isStakingAllowed")}
+                                        value={watch("isStakingAllowed") ?? false}
                                         onChange={(e) => setValue("isStakingAllowed", e.target.value)}
                                         sx={{ flexDirection: "row" }}
                                     >
@@ -238,7 +238,7 @@ function UserProfileUpdate({ userData, userDataLoading }) {
                                     <RadioGroup
                                         aria-labelledby="demo-controlled-radio-buttons-group"
                                         name="controlled-radio-buttons-group"
-                                        value={watch("isInternalTransferAllowed")}
+                                        value={watch("isInternalTransferAllowed") ?? false}
                                         onChange={(e) => setValue("isInternalTransferAllowed", e.target.value)}
                                         sx={{ flexDirection: "row" }}
                                     >
@@ -254,7 +254,7 @@ function UserProfileUpdate({ userData, userDataLoading }) {
                                     <RadioGroup
                                         aria-labelledby="demo-controlled-radio-buttons-group"
                                         name="controlled-radio-buttons-group"
-                                        value={watch("isAvailableForReward")}
+                                        value={watch("isAvailableForReward") ?? false}
                                         onChange={(e) => setValue("isAvailableForReward", e.target.value)}
                                         sx={{ flexDirection: "row" }}
                                     >
@@ -396,7 +396,7 @@ function UserProfileUpdate({ userData, userDataLoading }) {
                                     <RadioGroup
                                         aria-labelledby="demo-controlled-radio-buttons-group"
                                         name="controlled-radio-buttons-group"
-                                        value={watch("isTrxPassCreated")}
+                                        value={watch("isTrxPassCreated") ?? false}
                                         onChange={(e) => setValue("isTrxPassCreated", e.target.value)}
                                         sx={{ flexDirection: "row" }}
                                     >
