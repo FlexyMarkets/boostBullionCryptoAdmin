@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
     token: localStorage.getItem('token') || null,
     tempToken: "",
+    tokenExpTime: JSON.parse(localStorage.getItem("tokenExpTime")) || null,
     userData: JSON.parse(localStorage.getItem("userData")) || null,
     forgotPasswordActiveStep: "sendOTP",
     selectedContactForOtp: "",
@@ -47,6 +48,14 @@ const authSlice = createSlice({
         },
         setEmailOnOtpSent: (state, action) => {
             state.emailOnOtpSent = action.payload
+        },
+        setTokenExpTime: (state, action) => {
+            state.tokenExpTime = action.payload
+            if (action.payload) {
+                localStorage.setItem("tokenExpTime", JSON.stringify(action.payload))
+            } else {
+                localStorage.removeItem("tokenExpTime")
+            }
         }
     },
 });
@@ -60,6 +69,7 @@ export const {
     setForgotPasswordActiveStep,
     setSelectedContactForOtp,
     setTempToken,
-    setEmailOnOtpSent
+    setEmailOnOtpSent,
+    setTokenExpTime
 } = authSlice.actions;
 export default authSlice.reducer;

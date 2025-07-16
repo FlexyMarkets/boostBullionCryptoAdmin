@@ -13,6 +13,7 @@ import ProtectedAuthRoute from "./userPanel/userPanelComponent/ProtectedAuthRout
 import Notify from "./userPanel/userPanelComponent/Notify.jsx";
 import { clearNotification } from "./globalState/notification/notificationSlice.js";
 import NotFound from "./userPanel/pages/NotFound.jsx";
+import TokenExpiryHandler from "./userPanel/userPanelComponent/TokenExpiryHandler.jsx";
 
 // Lazy-loaded components
 // const LandingPage = lazy(() => import("./landing/LandingPage.jsx"));
@@ -31,6 +32,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <TokenExpiryHandler />
       <GoToTop />
       <Notify
         open={open}
