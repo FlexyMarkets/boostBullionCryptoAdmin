@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { login, setUserData } from "./authSlice";
+import { login, setUserData, setTokenExpTime } from "./authSlice";
 import { jwtDecode } from "jwt-decode";
 
 export const authApi = createApi({
