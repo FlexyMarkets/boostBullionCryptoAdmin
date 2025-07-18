@@ -13,7 +13,7 @@ import {
 import LockIcon from "@mui/icons-material/Lock";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { inputStyles } from "../authPagesInputStyle";
 import { signinSchema } from "./signInSchema";
@@ -25,12 +25,15 @@ import { setNotification } from "../../../globalState/notification/notificationS
 import { useDispatch } from "react-redux";
 import PersonIcon from '@mui/icons-material/Person';
 import { removeUserData } from "../../../globalState/auth/authSlice";
+import { initiateSocketConnection } from "../../../globalState/socketENV";
+import { logout } from "../../../globalState/auth/authSlice";
 
 
 function SignIn() {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const socketRef = useRef(null);
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -48,6 +51,13 @@ function SignIn() {
         defaultValues: defaultValues
     });
 
+    const handleLogoutEvent = (data, currentUserId) => {
+        if (data?.userId === currentUserId) {
+            dispatch(setNotification({ open: true, message: "You've been logged out.", severity: "info" }));
+            dispatch(logout())
+            navigate("/");
+        }
+    };
 
     const onSubmit = async (data) => {
 
@@ -55,6 +65,14 @@ function SignIn() {
             const response = await signIn(data).unwrap();
 
             if (response?.status) {
+                const token = response?.data?.token
+                const loggedInUserId = response?.data?.sendData?._id
+                socketRef.current = initiateSocketConnection({
+                    token,
+                    dispatch,
+                    onLogout: handleLogoutEvent,
+                    currentUserId: loggedInUserId
+                });
                 navigate("/dashboard")
                 dispatch(setNotification({ open: true, message: response?.message, severity: "success" }));
                 // dispatch(removeUserData())
