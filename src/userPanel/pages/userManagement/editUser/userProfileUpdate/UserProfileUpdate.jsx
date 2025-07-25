@@ -175,7 +175,7 @@ function UserProfileUpdate({ userData, userDataLoading }) {
                                         aria-labelledby="demo-controlled-radio-buttons-group"
                                         name="controlled-radio-buttons-group"
                                         value={watch("isEmailVerified") ?? false}
-                                        onChange={(e) => setValue("isEmailVerified", e.target.value)}
+                                        onChange={(e) => setValue("isEmailVerified", e.target.value === "true")}
                                         sx={{ flexDirection: "row" }}
                                     >
                                         <FormControlLabel disabled value={true} control={<Radio />} label="True" />
@@ -191,7 +191,7 @@ function UserProfileUpdate({ userData, userDataLoading }) {
                                         aria-labelledby="demo-controlled-radio-buttons-group"
                                         name="controlled-radio-buttons-group"
                                         value={watch("isMobileVerified") ?? false}
-                                        onChange={(e) => setValue("isMobileVerified", e.target.value)}
+                                        onChange={(e) => setValue("isMobileVerified", e.target.value === "true")}
                                         sx={{ flexDirection: "row" }}
                                     >
                                         <FormControlLabel disabled value={true} control={<Radio />} label="True" />
@@ -207,7 +207,7 @@ function UserProfileUpdate({ userData, userDataLoading }) {
                                         aria-labelledby="demo-controlled-radio-buttons-group"
                                         name="controlled-radio-buttons-group"
                                         value={watch("isWithdrawAllowed") ?? false}
-                                        onChange={(e) => setValue("isWithdrawAllowed", e.target.value)}
+                                        onChange={(e) => setValue("isWithdrawAllowed", e.target.value === "true")}
                                         sx={{ flexDirection: "row" }}
                                     >
                                         <FormControlLabel value={true} control={<Radio />} label="True" />
@@ -223,7 +223,7 @@ function UserProfileUpdate({ userData, userDataLoading }) {
                                         aria-labelledby="demo-controlled-radio-buttons-group"
                                         name="controlled-radio-buttons-group"
                                         value={watch("isStakingAllowed") ?? false}
-                                        onChange={(e) => setValue("isStakingAllowed", e.target.value)}
+                                        onChange={(e) => setValue("isStakingAllowed", e.target.value === "true")}
                                         sx={{ flexDirection: "row" }}
                                     >
                                         <FormControlLabel value={true} control={<Radio />} label="True" />
@@ -239,7 +239,7 @@ function UserProfileUpdate({ userData, userDataLoading }) {
                                         aria-labelledby="demo-controlled-radio-buttons-group"
                                         name="controlled-radio-buttons-group"
                                         value={watch("isInternalTransferAllowed") ?? false}
-                                        onChange={(e) => setValue("isInternalTransferAllowed", e.target.value)}
+                                        onChange={(e) => setValue("isInternalTransferAllowed", e.target.value === "true")}
                                         sx={{ flexDirection: "row" }}
                                     >
                                         <FormControlLabel value={true} control={<Radio />} label="True" />
@@ -255,7 +255,7 @@ function UserProfileUpdate({ userData, userDataLoading }) {
                                         aria-labelledby="demo-controlled-radio-buttons-group"
                                         name="controlled-radio-buttons-group"
                                         value={watch("isAvailableForReward") ?? false}
-                                        onChange={(e) => setValue("isAvailableForReward", e.target.value)}
+                                        onChange={(e) => setValue("isAvailableForReward", e.target.value === "true")}
                                         sx={{ flexDirection: "row" }}
                                     >
                                         <FormControlLabel value={true} control={<Radio />} label="True" />
@@ -397,7 +397,7 @@ function UserProfileUpdate({ userData, userDataLoading }) {
                                         aria-labelledby="demo-controlled-radio-buttons-group"
                                         name="controlled-radio-buttons-group"
                                         value={watch("isTrxPassCreated") ?? false}
-                                        onChange={(e) => setValue("isTrxPassCreated", e.target.value)}
+                                        onChange={(e) => setValue("isTrxPassCreated", e.target.value === "true")}
                                         sx={{ flexDirection: "row" }}
                                     >
                                         <FormControlLabel value={true} control={<Radio />} label="True" />
